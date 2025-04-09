@@ -1,0 +1,19 @@
+<div *ngIf="pokemon$ | async as pokemon" class="pokemon-card">
+    <h2>{{pokemon.name | titlecase}} (ID: {{pokemon.id}})</h2>
+    <img [src]="pokemon.sprites.front_default" alt="{{pokemon.name}}">
+    <div class="pokemon-info">
+        <h3>Información</h3>
+        <div>
+            <p><strong>Altura:</strong> {{pokemon.height /10}} metros</p>
+        </div>
+        <div>
+            <p><strong>Peso:</strong> {{pokemon.weight / 10 }} kg</p>
+        </div>
+        <div>
+            <p><strong>Tipo:</strong></p>
+            <ul>
+                <li *ngFor="let typeInfo of pokemon.types">{{typeInfo.type.name | titlecase}}</li>
+            </ul>
+        </div>
+        <a [routerLink]="['/pokemons']">Volver a la lista</a>
+</div>

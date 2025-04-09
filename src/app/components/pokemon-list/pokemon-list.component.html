@@ -1,0 +1,11 @@
+<h2>Lista de Pokémon</h2>
+<p *ngIf="pokemons.length ===0">Cargando Pokémon...</p>
+
+<ul *ngIf="pokemons.length > 0">
+    <li *ngFor="let pokemon of pokemons">
+        <a [routerLink]="['/pokemon', pokemon.name]">
+
+            {{pokemon.name | titlecase}}
+        </a>
+    </li>
+</ul>
